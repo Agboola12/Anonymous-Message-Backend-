@@ -1,14 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require ("dotenv");
-dotenv.config();
-const app = express();
 const  mongoose  = require('mongoose');
-const PORT = process.env.PORT || 6000;
-app.use(cors());
+const PORT = process.env.PORT || 4001;
 const bodyParser = require('body-parser');
 const { rout } = require("./Router");
+const app = express();
+app.use(cors({origin:"*"}));
 app.use(bodyParser.json({limit:'50mb'}));
+dotenv.config();
 
 mongoose.set('strictQuery', true)
 
@@ -19,11 +19,14 @@ mongoose.connect(process.env.URI).then(res =>{
 })
 
 
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 
+app.get('/',(req, res)=>{
+   res.send("hello world")
+})
 app.use("/",rout )
 
 app.listen(PORT, ()=>{
