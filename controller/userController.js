@@ -1,4 +1,8 @@
 const userAnonymous = require("../model/userModel");
+const { compare } = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+
 
 // Registering User
 const register = async (req, res) => {  
