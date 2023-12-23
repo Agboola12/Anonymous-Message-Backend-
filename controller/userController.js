@@ -89,7 +89,30 @@ const login = (req, res) => {
                 console.log(err);
             }
         })
-
 }
 
-module.exports = { register, login };
+const getUser = async (req, res) => {
+    let data = await jwt.verify(req.headers.authorization, process.env.JWT_SECRET);
+
+    if (!data) {
+        res.send({ message: "Invalid token", status: false })
+    } else {
+        userAnonymous.findById(data._id)
+            .then(data => {
+                res.json({
+                    success: true,
+                    data,
+                    message: "User profile fetched"
+                })
+            })
+            .catch(err => {
+                res.status(500).json({
+                    success: false,
+                    message: "An error occurres when fetching user profile"
+                })
+                console.log(err, "Problem getting user");
+            })
+    }
+}
+
+module.exports = { register, login, getUser };
