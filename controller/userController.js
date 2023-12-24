@@ -115,8 +115,6 @@ const getUser = async (req, res) => {
     }
 }
 
-const UserMessgae = (req, res)={
-    
-}
+
 
 module.exports = { register, login, getUser };

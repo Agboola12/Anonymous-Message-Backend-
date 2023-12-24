@@ -22,4 +22,8 @@ const message = async (req, res) => {
     }
 };
 
+const UserMessgae = (req, res)=>{
+
+}
+
 module.exports = { message }
