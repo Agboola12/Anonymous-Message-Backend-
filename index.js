@@ -13,7 +13,7 @@ dotenv.config();
 mongoose.set('strictQuery', true)
 
 mongoose.connect(process.env.URI).then(res =>{
-   console.log("db connected");
+   console.log("database is connected");
 }).catch(err =>{
    console.log( err.message );
 })
