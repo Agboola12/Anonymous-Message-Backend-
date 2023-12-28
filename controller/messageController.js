@@ -23,6 +23,23 @@ const message = async (req, res) => {
 };
 
 const getMessage = (req, res)=>{
+    userMessage.find({})
+        .then(data => {
+            if (data) {
+                res.status(200).send({
+                    success: true,
+                    message: "successful in getting users food transactions",
+                    data
+                })
+            }
+        }).catch(err => {
+            res.status(500).send({
+                success: false,
+                message: "not successful in getting users food transactions",
+            })
+
+            console.log(err, "erroroorr in  getting users food transactions");
+        })
 
 }
 

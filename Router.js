@@ -1,6 +1,6 @@
 const express = require('express');
 const { register, login, getUser } = require('./controller/userController');
-const { message } = require('./controller/messageController');
+const { message, getMessage } = require('./controller/messageController');
 const { verifyUser } = require('./middleware/authMiddleware');
 const rout = express.Router();
 
@@ -11,7 +11,7 @@ rout.get("/getUser",verifyUser, getUser)
 
 // message 
 rout.post("/message", message )
-rout.get("/getMessage", get )
+rout.get("/getMessage",verifyUser, getMessage )
 
 
 
