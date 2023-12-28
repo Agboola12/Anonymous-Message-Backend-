@@ -4,10 +4,13 @@ const { message } = require('./controller/messageController');
 const { verifyUser } = require('./middleware/authMiddleware');
 const rout = express.Router();
 
+// user 
 rout.post("/register", register )
 rout.post("/login", login )
-rout.post("/message", message )
 rout.get("/getUser",verifyUser, getUser)
+
+// message 
+rout.post("/message", message )
 
 
 
