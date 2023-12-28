@@ -11,7 +11,7 @@ rout.get("/getUser",verifyUser, getUser)
 
 // message 
 rout.post("/message", message )
-rout.get("/getMessage",verifyUser, getMessage )
+rout.get("/getMessage/:id", getMessage )
 
 
 

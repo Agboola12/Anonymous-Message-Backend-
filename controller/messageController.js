@@ -23,22 +23,24 @@ const message = async (req, res) => {
 };
 
 const getMessage = (req, res)=>{
-    userMessage.find({})
+    const id = req.params.id;
+    userMessage.find({userId : id})
         .then(data => {
             if (data) {
+                console.log(data);
                 res.status(200).send({
                     success: true,
-                    message: "successful in getting users food transactions",
+                    message: "successful in getting users message",
                     data
                 })
             }
         }).catch(err => {
             res.status(500).send({
                 success: false,
-                message: "not successful in getting users food transactions",
+                message: "not successful in getting users message",
             })
 
-            console.log(err, "erroroorr in  getting users food transactions");
+            
         })
 
 }
