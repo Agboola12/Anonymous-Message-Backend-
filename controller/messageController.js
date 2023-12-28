@@ -6,7 +6,7 @@ const message = async (req, res) => {
     console.log(req.body);
     const {userId, message  } = req.body;
     try {
-        const newUser = await userMessage.create({ message });
+        const newUser = await userMessage.create({ userId,message });
 
         return res.status(200).json({
             success: true,
