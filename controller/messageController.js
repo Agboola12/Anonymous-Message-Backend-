@@ -4,9 +4,9 @@ const userMessage = require("../model/messageModel");
 // Registering User
 const message = async (req, res) => {
     console.log(req.body);
-    const { message, userId } = req.body;
+    const {userId, message  } = req.body;
     try {
-        const newUser = await userMessage.create({ message, userId });
+        const newUser = await userMessage.create({ message });
 
         return res.status(200).json({
             success: true,
