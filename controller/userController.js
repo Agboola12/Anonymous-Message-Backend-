@@ -55,7 +55,7 @@ const login = (req, res) => {
                             { expiresIn: "12h" }
                         )
                         data.password = "";
-                        res.json({
+                        res.status(200).json({
                             token,
                             success: true,
                             message: " login successful",

@@ -23,7 +23,7 @@ const message = async (req, res) => {
 
 const getMessage = (req, res)=>{
     const id = req.params.id;
-    console.log(id);
+    // console.log(id);
     userMessage.find({userId : id})
         .then(data => {
             if (data) {
