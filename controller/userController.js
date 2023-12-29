@@ -13,7 +13,7 @@ const register = async (req, res) => {
         const alreadyExists = await userAnonymous.findOne({ email });
 
         if (alreadyExists) {
-            return res.status(400).json({
+            return res.status(200).json({
                 status: false,
                 message: "Email already exists",
             });
