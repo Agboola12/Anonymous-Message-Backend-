@@ -76,14 +76,14 @@ const login = (req, res) => {
             }
             else {
                 res.status(200).json({
-                    success: false,
+                    status: false,
                     message: "email does not match "
                 })
             }
         }).catch(err => {
             if (err) {
                 res.status(500).json({
-                    success: false,
+                    status: false,
                     message: err
                 })
                 console.log(err);
@@ -99,8 +99,8 @@ const getUser = async (req, res) => {
     } else {
         userAnonymous.findById(data._id)
             .then(data => {
-                res.json({
-                    success: true,
+                res.status(200).json({
+                    status: true,
                     data,
                     message: "User profile fetched"
                 })
