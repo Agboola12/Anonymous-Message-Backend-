@@ -14,7 +14,7 @@ const register = async (req, res) => {
 
         if (alreadyExists) {
             return res.status(400).json({
-                success: false,
+                status: false,
                 message: "Email already exists",
             });
         }
@@ -57,14 +57,14 @@ const login = (req, res) => {
                         data.password = "";
                         res.status(200).json({
                             token,
-                            success: true,
+                            status: true,
                             message: " login successful",
                             data: { email: req.body.email }
                         })
                     }
                     else {
                         res.status(200).json({
-                            success: false,
+                            status: false,
                             message: "email or password is not correct"
                         })
                     }
