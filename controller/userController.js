@@ -22,14 +22,14 @@ const register = async (req, res) => {
         const newUser = await userAnonymous.create({ username, email, password });
 
         return res.status(200).json({
-            success: true,
+            status: true,
             message: "User registration successful",
             data: newUser,
         });
     } catch (error) {
         console.error(error);
         return res.status(200).json({
-            success: false,
+            status: false,
             message: "Registration failed",
         });
     }
