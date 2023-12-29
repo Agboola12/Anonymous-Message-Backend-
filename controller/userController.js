@@ -106,8 +106,8 @@ const getUser = async (req, res) => {
                 })
             })
             .catch(err => {
-                res.status(500).json({
-                    success: false,
+                res.status(200).json({
+                    status: false,
                     message: "An error occurres when fetching user profile"
                 })
                 console.log(err, "Problem getting user");
