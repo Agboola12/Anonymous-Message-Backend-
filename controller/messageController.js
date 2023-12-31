@@ -27,7 +27,7 @@ const getMessage = (req, res)=>{
     userMessage.find({userId : id})
         .then(data => {
             if (data) {
-                console.log(data);
+                // console.log(data);
                 res.status(200).send({
                     status: true,
                     message: "successful in getting users message",
