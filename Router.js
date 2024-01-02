@@ -8,6 +8,7 @@ const rout = express.Router();
 rout.post("/register", register )
 rout.post("/login", login )
 rout.get("/getUser",verifyUser, getUser)
+rout.get("/getUser", getUser)
 
 // message 
 rout.post("/message", message )

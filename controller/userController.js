@@ -115,6 +115,29 @@ const getUser = async (req, res) => {
     }
 }
 
+const getUserMessage = (req, res)=>{
+    const id = req.params.id;
+    // console.log(id);
+    userAnonymous.findById({ id})
+        .then(data => {
+            if (data) {
+                // console.log(data);
+                res.status(200).send({
+                    status: true,
+                    message: "successful in getting users ",
+                    data
+                })
+            }
+        }).catch(err => {
+            res.status(200).send({
+                status: false,
+                message: "No details found for the user",
+            })
+            console.log("Error in getting user:", err);
+        })
+
+}
 
 
-module.exports = { register, login, getUser };
+
+module.exports = { register, login, getUser, getUserMessage };
