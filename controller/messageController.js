@@ -25,7 +25,7 @@ const message = async (req, res) => {
 const getMessage = async (req, res)=>{
     const id = req.params.id;
     try{
-   const user = await userAnonymous.findById({_id : id})
+   const user = await userAnonymous.findById({id})
    const data = await userMessage.find({userId : id})
    if(!user || !data ){
     console.log(user );
