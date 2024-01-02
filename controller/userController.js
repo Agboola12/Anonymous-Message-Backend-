@@ -117,11 +117,11 @@ const getUser = async (req, res) => {
 
 const getUserMessage = (req, res)=>{
     const id = req.params.id;
-    // console.log(id);
-    userAnonymous.findById({ id})
+    console.log(id);
+    userAnonymous.findById({ _id: id})
         .then(data => {
             if (data) {
-                // console.log(data);
+                console.log(data);
                 res.status(200).send({
                     status: true,
                     message: "successful in getting users ",
